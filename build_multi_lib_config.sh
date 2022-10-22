@@ -3,7 +3,7 @@ NDK=/home/muxi/code/android-ndk-r21e
 SYSROOT=$NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot
 TOOLCHAIN=$NDK/toolchains/llvm/prebuilt/linux-x86_64
 APK_PATH=/home/muxi/code/ffmpegdemo/app/jni/ffmpeg
-API=28
+API=22
 
 function build_android
 {

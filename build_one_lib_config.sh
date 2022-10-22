@@ -2,7 +2,7 @@
 NDK=/home/muxi/code/android-ndk-r21e
 SYSROOT=$NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot
 TOOLCHAIN=$NDK/toolchains/llvm/prebuilt/linux-x86_64
-API=28
+API=22
 
 function build_android
 {
