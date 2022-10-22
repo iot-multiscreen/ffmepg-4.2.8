@@ -22,6 +22,10 @@
 *.ptx
 *.ptx.c
 *.ptx.gz
+*.fate
+*.texi
+*.log
+*.mak
 *_g
 \#*
 .\#*
@@ -39,3 +43,4 @@
 /src
 /mapfile
 /tools
+/android
