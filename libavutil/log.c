@@ -433,3 +433,29 @@ void avpriv_report_missing_feature(void *avc, const char *msg, ...)
     missing_feature_sample(0, avc, msg, argument_list);
     va_end(argument_list);
 }
+
+//add android log debug
+#if 0
+static void android_log_callback(void *ptr, int level, const char *fmt, va_list vl)
+{
+    static int print_prefix = 1;
+    static int count;
+    static char prev[1024];
+    char line[1024];
+    static int is_atty;
+
+    av_log_format_line(ptr, level, fmt, vl, line, sizeof(line), &print_prefix);
+
+    strcpy(prev, line);
+    //sanitize((uint8_t *)line);
+
+    if (level <= AV_LOG_WARNING)
+    {
+        ALOGE("%s", line);
+    }
+    else
+    {
+        ALOGD("%s", line);
+    }
+}
+#endif

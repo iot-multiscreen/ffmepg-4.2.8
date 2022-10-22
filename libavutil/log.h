@@ -359,4 +359,18 @@ int av_log_get_flags(void);
  * @}
  */
 
+#define ANDROID_DBEUG
+#ifdef ANDROID_DBEUG
+#include <android/log.h>
+#ifndef LOG_TAG
+#define  LOG_TAG    "FFMPEG"
+#endif
+#define  ALOGD(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
+#define  ALOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__)
+#else
+#include <stdio.h>
+#define ALOGE(format, ...)  fprintf(stdout, LOG_TAG ": " format "\n", ##__VA_ARGS__)
+#define ALOGI(format, ...)  fprintf(stderr, LOG_TAG ": " format "\n", ##__VA_ARGS__)
+#endif  //ANDROID_DBEUG
+
 #endif /* AVUTIL_LOG_H */
